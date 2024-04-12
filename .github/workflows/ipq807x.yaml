@@ -74,8 +74,8 @@ jobs:
             - name: Create a release
               uses: "ncipollo/release-action@v1"
               with:
-                name: "Updated prebuilt images (NSS-WiFi) ${{ env.NOW }}"
-                commit: "main_nss"
+                name: "Updated prebuilt images (NSS-WiFi-Mesh) ${{ env.NOW }}"
+                commit: "qualcommax-6.x-nss-wifi"
                 tag: "ipq807x-nsswifi-${{ env.NOW }}"
                 generateReleaseNotes: true
                 makeLatest: true
