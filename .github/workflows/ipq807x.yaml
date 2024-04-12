@@ -24,12 +24,12 @@ jobs:
                 rm -rf feeds/packages/net/v2ray-geodata
                 rm -rf feeds/nss-packages/utils/mhz
                 git clone https://github.com/immortalwrt/luci.git
-                cp luci/modules/luci-base feeds/luci/modules/luci-base
-                cp luci/modules/luci-mod-status feeds/luci/modules/luci-mod-status
                 mv AX6.config .config
 
             - name: renew feeds
               run: |
+                cp luci/modules/luci-base feeds/luci/modules/luci-base
+                cp luci/modules/luci-mod-status feeds/luci/modules/luci-mod-status
                 rm -rf ./tmp
                 ./scripts/feeds update -a
                 ./scripts/feeds install -a
