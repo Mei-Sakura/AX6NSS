@@ -18,7 +18,7 @@ jobs:
 
             - name: Import full config for IPQ807x NSS Generic
               run: |
-                mv .full_config .config
+                mv AX6.config .config
 
             - name: QoL fixes on default config
               run: |
