@@ -23,9 +23,16 @@ jobs:
                 rm -rf feeds/packages/utils/coremark
                 rm -rf feeds/packages/net/v2ray-geodata
                 rm -rf feeds/nss-packages/utils/mhz
-                svn export https://github.com/immortalwrt/luci/tree/master/modules/luci-base feeds/luci/modules/luci-base
-                svn export https://github.com/immortalwrt/luci/tree/master/modules/luci-mod-status feeds/luci/modules/luci-mod-status
+                git clone https://github.com/immortalwrt/luci.git
+                cp luci/modules/luci-base feeds/luci/modules/luci-base
+                cp luci/modules/luci-mod-status feeds/luci/modules/luci-mod-status
                 mv AX6.config .config
+
+            - name: renew feeds
+              run: |
+                rm -rf ./tmp
+                ./scripts/feeds update -a
+                ./scripts/feeds install -a
 
             - name: QoL fixes on default config
               run: |
